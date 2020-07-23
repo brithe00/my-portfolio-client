@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import DashboardTable from './components/DashboardTable';
+import PostForm from './components/PostForm';
+import Login from './components/Login';
+import Home from './components/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { connect } from 'react-redux';
+
+class App extends React.Component {
+
+  withAuth = (Component) => {
+    const { token } = this.props;
+    const RedirectToLogin = () => (<Redirect to="/admin" />);
+    return (token != null ? Component : RedirectToLogin);
+  }
+
+  render() {
+    const { withAuth } = this;
+    return (
+      <div className="App">
+        <Router>
+          <Switch>
+            <Route path="/admin" component={Login} />
+            <Route path="/dashboard" component={withAuth(DashboardTable)} />
+            <Route path="/form" component={withAuth(PostForm)} />
+            <Route path="/" component={Home} />
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  token: state.reducer.token,
+});
+
+export default connect(mapStateToProps)(App);
