@@ -52,3 +52,12 @@
 .sections-li a:hover {
     color: black;
 }
+  
+@media screen and (max-width: 600px) {
+    .sections-ul {
+        flex-direction: column;
+    }
+    .card {
+        margin: 1rem;
+    }
+}
