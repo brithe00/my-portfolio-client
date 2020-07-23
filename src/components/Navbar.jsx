@@ -13,7 +13,7 @@ function Navbar(props) {
             <div className="navbar-container">
                 <div className="logo-container">
                     <div className="title-container">My Portfolio</div>
-                    <div className="subtitle-container">Admin panel</div>
+                    <div className="subtitle-container">Admin Panel</div>
                 </div>
                 <div className="buttons-container">
                     <Button color="secondary" size="lg" onClick={() => {
