@@ -1,0 +1,15 @@
+.go-back-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+
+.fa-arrow-left {
+    font-size: 2rem;
+}
+
+.go-back-phrase {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0 0 0 2rem;
+}
