@@ -13,3 +13,7 @@
 .project-description {
     max-width: 20vw;
 }
+
+.table td {
+    max-width: 30vw;
+}
