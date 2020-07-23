@@ -1,0 +1,20 @@
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    margin: 5rem;
+}
+
+.card-img-top {
+    max-height: 20vh;
+}
+
+.project-title {
+    max-width: 20vw;
+}
+
+.project-description {
+    max-width: 20vw;
+}
