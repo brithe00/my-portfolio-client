@@ -10,6 +10,7 @@ import DashboardTable from './components/DashboardTable';
 import PostForm from './components/PostForm';
 import Login from './components/Login';
 import Home from './components/Home';
+import EditForm from './components/EditForm';
 
 import { connect } from 'react-redux';
 
@@ -27,6 +28,7 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Switch>
+            <Route path="/edit/:id" component={withAuth(EditForm)} />
             <Route path="/admin" component={Login} />
             <Route path="/dashboard" component={withAuth(DashboardTable)} />
             <Route path="/form" component={withAuth(PostForm)} />
