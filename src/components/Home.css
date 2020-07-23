@@ -12,9 +12,42 @@
 }
 
 .project-title {
-    max-width: 20vw;
+    max-width: 100%;
 }
 
 .project-description {
-    max-width: 20vw;
+    max-width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+    .card-img-top {
+        max-height: 50vh;
+    }
+    .project-title {
+        max-width: 70vw;
+    }
+    .project-description {
+        max-width: 70vw;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+      }
+      .card-img-top {
+        max-height: 40vh;
+    }
+      .project-title {
+          max-width: 100%;
+      }
+      .project-description {
+          max-width: 100%;
+      }
+      .title-h1 {
+          font-size: 1.5rem;
+      }
+  }
