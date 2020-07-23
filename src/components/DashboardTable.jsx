@@ -6,6 +6,7 @@ import './DashboardTable.css'
 import { useHistory } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { dataId } from '../redux/Reducer';
 
 import Navbar from './Navbar'
 
@@ -24,6 +25,11 @@ function DashboardTableContainer({ dispatch,  ...props }) {
       })
 
   }, [props.token, history]);
+
+  const getId = (data) => {
+    dispatch(dataId(data))
+    history.push(`/edit/${data}`)
+  };
 
   return (
     <>
@@ -58,13 +64,13 @@ function DashboardTableContainer({ dispatch,  ...props }) {
             <tbody>
               <tr>
                 <th scope="row">{postData.id}</th>
-                <td><img src={postData.media} alt={postData.title} className="project-image" /></td>
-                <td>{postData.title}</td>
-                <td>{postData.description}</td>
-                <td>{postData.link}</td>
-                <td>{postData.name}</td>
+                <td className="project-description"><img src={postData.media} alt={postData.title} className="project-image" /></td>
+                <td className="project-description">{postData.title}</td>
+                <td className="project-description">{postData.description}</td>
+                <td className="project-description">{postData.link}</td>
+                <td className="project-description">{postData.name}</td>
                 <td>
-                  <Button onClick={() => {history.push('/form')}} outline color="primary">Edit</Button>
+                  <Button onClick={(data) => {getId(postData.id)}} outline color="primary">Edit</Button>
                   <Button onClick={() => {
                     const url = `http://localhost:8000/posts/${postData.id}`
                     Axios.delete(url, { headers: { Authorization: `Bearer ${props.token}` } })
