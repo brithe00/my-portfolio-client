@@ -5,14 +5,24 @@ const changeToken = (newToken) => ({
     newToken,
 });
 
+const dataId = (newDataId) => ({
+    type: 'DISPLAY_DATAID',
+    newDataId
+});
+
 /* ==== REDUCER ===== */
 
-const typeReducer = (state = { token: null }, action) => {
+const typeReducer = (state = { token: null, dataProjectId: null }, action) => {
     switch (action.type) {
         case 'CHANGE_TOKEN':
             return {
                 ...state,
                 token: action.newToken,
+            };
+        case 'DISPLAY_DATAID':
+            return {
+                ...state,
+                dataProjectId: action.newDataId
             };
         default:
             return state;
@@ -20,4 +30,4 @@ const typeReducer = (state = { token: null }, action) => {
 };
 
 export default typeReducer;
-export { changeToken }
+export { changeToken, dataId }
