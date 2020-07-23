@@ -27,7 +27,7 @@ function Home(props) {
             <Card>
               <CardImg top width="100%" src={projectData.media} alt={projectData.title} />
               <CardBody>
-                <CardTitle className="project-title"><h1>{projectData.title}</h1></CardTitle>
+                <CardTitle className="project-title"><h1 className="title-h1">{projectData.title}</h1></CardTitle>
                 <CardText className="project-description"><p>{projectData.description}</p></CardText>
                 <a href={projectData.link} target="_blank" rel="noopener noreferrer">Go to website</a>
               </CardBody>
